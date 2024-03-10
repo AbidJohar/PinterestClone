@@ -1,0 +1,47 @@
+<% include ./partials/header.ejs %>
+ <div class="w-full h-screen text-black pt-1">
+   
+   <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image">
+      <button type="submit">Upload</button>
+   </form>
+    <div class="profiledetails flex flex-col items-center justify-center mt-3 ">
+     <div class="relative">
+      <span id="uploadicon" class="w-7 h-7 border-[1px] border-black rounded-full absolute bottom-0 right-0 bg-zinc-100  flex items-center justify-center">
+         <i class=" text-zinc-800 ri-pencil-fill"></i>
+      </span>
+      <div class="w-24 h-24 bg-red-600 rounded-full overflow-hidden">
+             <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profileImage %>" alt="">
+     </div>
+     </div>
+      <h1 class="font-semibold text-xl"><%= user.username %></h1>
+      <h3 class="font-medium  opacity-60 text-xs mb-1"><%= user.email %></h3>
+      <a href="/edit" class="py-0.5 px-3 bg-zinc-400 rounded-full  text-xs font-semibold ">Edit</a>
+      <a class="bg-red-600 py-0.5 px-4 rounded-full mt-3 font-semibold hover:bg-red-700" href="/add">Add New Post</a>
+      
+    </div>
+<div class="card flex flex-wrap gap-3 mx-4 mt-2">
+    
+<div class="card">  
+   <div class=" w-32 h-24 bg-zinc-500  rounded-lg overflow-hidden">
+      <img class="w-full bg-cover h-full " src="/images/uploads/<%= user?.posts[0]?.image %>" alt="">
+   </div>
+    <a href="/show/posts" class="inline-block text-xs font-semibold mt-1">Uploaded Pins</a>
+   <h5 class="text-xs font-medium opacity-50"><%= user?.posts?.length %></h5>
+ </div>
+</div>
+</div>
+<script>
+
+   document.querySelector("#uploadicon").addEventListener("click", function(){
+      document.querySelector("#uploadform input").click();
+      document.querySelector("#uploadform input").addEventListener("change", function(){
+         document.querySelector("#uploadform").submit();
+      })
+   })
+
+    
+
+</script>
+
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,34 @@
+ 
+  <% include ./partials/header.ejs %>
+  
+   <div class="w-full h-screen  bg-cover flex items-center justify-center relative">
+    <video autoplay muted loop id="myVideo">
+      <source  src="/images/pexels-tony-schnagl-5527786 (2160p).mp4" type="video/mp4">
+    </video>
+
+    <div  class=" w-72 h-92 bg-white shadow-3xl rounded-[15px] absolute text-black py-4 px-4">
+        <h1 class="inline-block text-lg text-center w-full font-bold mb-4" >Welcome To Pinterest</h1>
+        <% if(error.length > 0){ %>
+          <h4 class="text-red-500 capitalize tracking-tight font-semibold"><%= error %></h4>
+         <% } %>
+
+        <form action="/login" method="post">
+          <label class="text-xs   font-semibold text-black" for="username">Username</label>
+        <input class="block  w-[250px] px-3 mb-2 border-[1px] border-black rounded-md " type="text" name="username" placeholder="username">
+
+        <label class="text-xs  font-semibold text-black" for="username">Password</label>
+        <input class="block px-3 w-[250px] border-[1px] border-black rounded-md mb-2" type="passoord" name="password" placeholder="password">
+        
+        <a class="block text-xs mt-3 mb-4 font-semibold underline underline-offset-1" href="">Forget you passowrd?</a>
+        <input class="block mt-7 text-center text-[15px] py-1 px-0 w-full font-semibold bg-red-600 rounded-full" type="submit" value="Submit">
+        <p class="text-[10px] w-3/4 font-semibold text-zinc-800 mx-auto text-center mt-4 ">By continuing, you agree to Pinterest's Terms of Service you've read our Privacy Policy; Opens a new tab.</p>
+      </form>
+      <a class="inline-block text-[10px] font-semibold text-center w-full text-zinc-900 " href="/registor">Don't have an account <strong class=" text-blue-800 underline underline-offset-3">click here ?</strong></a>
+    </div>
+
+   </div>
+  </div>
+
+    
+  <% include ./partials/header.ejs %>
+ 

@@ -1,0 +1,3 @@
+/registor --
+/login --
+/profile
