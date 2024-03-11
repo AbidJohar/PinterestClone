@@ -4,10 +4,11 @@
   <% user.posts.forEach(function(elem){%>
    <div>
     <div class="w-36 h-28 bg-zinc-600 rounded-md overflow-hidden">
-      <img class="bg-cover h-full w-full bg-slate-300" src="/images/uploads/<%=elem.image%>" alt="">
+      <img class="object-cover h-full w-full bg-slate-300 brightness-75" src="/images/uploads/<%=elem.image%>" alt="">
     </div>
-     <h3 class="font-semibold opacity-60"><%= elem.title%></h3>
+     <h3 class="font-semibold opacity-60 hover:brightness-75"><%= elem.title%></h3>
    </div>
+   
     <% }) %>
  </div>
 </div>

@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
-  <title>Document</title>
+  <link rel="icon" href="/images/pinterest.jfif" type="image/x-icon">
+  <title>Pinterest</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <% if(nav===true) {%>
-    <div class=" w-full px-7 py-2 flex justify-between items-center shadow-2xl  border-black  bg-white fade-in">
-      <h1 class="text-xl font-extrabold "> <i class="text-2xl font-extrabold text-red-600 ri-pinterest-fill"></i> Pinterest</h1>
+    <div id="nav" class=" w-full px-7 py-2 flex justify-between items-center shadow-2xl  border-black  bg-white fade-in">
+      <h1 class="text-xl font-extrabold "> <i id="pinterest" class="text-2xl font-extrabold text-red-600 ri-pinterest-fill"></i> Pinterest</h1>
       <div class="flex gap-10 items-center">
         <a class= "text-sm font-extrabold hover:underline underline-offset-1" href=" /profile">Profile</a>
         <a class="text-sm font-extrabold hover:underline underline-offset-1" href="/feed">Feed</a>
@@ -19,5 +20,23 @@
       </div>
     </div>
   <% } %>
-  </body>
-</html>
+  
+  <script>
+    var nav = document.querySelector('#nav');
+    var pinterestIcon = document.querySelector("#pinterest");
+  
+    pinterestIcon.addEventListener("pointermove", function(){
+      nav.style.backgroundColor = "#00468B";
+      nav.style.color = "white";
+    });
+  
+    pinterestIcon.addEventListener("pointerout", function(){
+      nav.style.transition = "background-color 0.5s ease-in-out";
+       
+      setTimeout(function() {
+        nav.style.backgroundColor = "transparent";
+        nav.style.color = "black";
+         
+      }, 800);  
+    });
+  </script>
